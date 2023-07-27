@@ -1,0 +1,599 @@
+// Global settings
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter";
+    
+  }
+  html {
+    font-size: 62.5%;
+     color:$black-text;
+     scroll-behavior: smooth;
+     @include screen-size(large) {
+      & {
+        font-size: 60%;
+      }
+    }
+    @include screen-size(medium) {
+      & {
+        font-size: 50%;
+      }
+    }
+    @include screen-size(tab-port) {
+      & {
+        font-size: 40%;
+      }
+    }
+    @include screen-size(phone) {
+      & {
+        font-size: 62.5%;
+      }
+    }
+  }
+  
+  body {
+    // background-color: $bgcolor;
+    font-size: 1.8rem;
+  }
+  a{
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .visually-hidden {
+    position: absolute;
+    left: -1000px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  .container{
+    width: 100%;
+    margin: 0 auto;
+  }
+  .wrapper{
+    max-width: 120rem;
+    margin-left: auto;
+    margin-right: auto;
+    @include screen-size(large) {
+      & {
+      max-width: 100rem;
+      }
+    }
+    @include screen-size(medium) {
+      & {
+        max-width: 90rem;
+      }
+    }
+    @include screen-size(tab-port) {
+      & {
+        max-width: 80rem;
+      }
+    }
+    @include screen-size(phone) {
+      & {
+       max-width:60rem ;
+      }
+    }
+  }
+  #topNavbar{
+    width: 100%;
+    background-color: $primary-blue;
+    padding: .8rem 0rem;
+    @include screen-size(phone) {
+      & {
+      display: none;
+      }
+    }
+   
+  }
+  .top-nav-font-icon{
+    color: $turqoise;
+  }
+.top-nav-icon{
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.twitter-icon{
+  width: 1.8rem;
+  height: 1.8rem;
+}
+.top-nav-icon-link{
+  margin: 0 1.2rem;
+  &:last-child{
+    margin-right: 0;
+  }
+
+}
+.top-contact-info{
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding-left: .1rem;
+ 
+}
+.seperator{
+  margin: 0 .8rem;
+}
+.social-media {
+ display: flex;
+ align-items: center;
+}
+#secondNavbarSection{
+  width: 100%;
+}
+.top-navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $beige-bg;
+  font-size: 1.4rem;
+  font-weight: 400;
+
+}
+.logo{
+width: 4rem;
+height: 5.8rem;
+}
+.second-navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.4rem;
+  padding: 1.3rem 0rem;
+  @include screen-size(phone) {
+    & {
+      padding-left: 2.0rem;
+    }
+  }
+   
+
+
+}
+// hamburger
+nav ul{
+  @include screen-size(phone) {
+    & {
+      position:absolute;
+      top:34px;
+      width:100%;
+      max-height: 0;
+      transition: max-height 0.15s ease-out;
+      overflow:hidden;
+      transition:all 1s ease-in-out;
+    }
+  }
+ 
+}
+#nav-button{
+  display:none;
+}
+.hamburger-label{
+  display: none;
+ 
+  // z-index: 10;
+  &::before{
+    content:'';
+  position:absolute;
+  height:.3rem;
+  width:3.0rem;
+  right: 2.0rem;
+  background-color:$secondary-blue;
+  top:2.5rem;
+  transition: .4s ease;
+  }
+  &:after{
+    content:'';
+    position:absolute;
+    right: 2.0rem;
+    height:.3rem;
+    width:3.0rem;
+    background-color:$secondary-blue;
+    top:3.7rem;
+    transition: .4s ease;
+  }
+  @include screen-size(phone) {
+    & {
+      display:block;
+      cursor:pointer;
+    }
+    &::before, &::after{
+      display: block;
+    }
+
+  }
+}
+
+nav li{
+  display:inline;
+}
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  text-align: center;
+ }
+ .link {
+ margin: 0 1rem;
+ padding: 0 1rem;
+ padding-bottom: .2rem;
+  text-decoration: none;
+  align-self: center;
+  color:  $black-text;
+  text-align: center;
+  position: relative;
+ 
+  &:last-child{
+    margin-right: 0;
+    padding-right: 0;
+  }
+  &:after{
+    position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: $secondary-blue;
+  height: 4px;
+  border-radius: 2px;
+  transition: all .5s;
+  }
+  &:hover{
+    // font-weight: 500;
+    color: $secondary-blue;
+  }
+  &:hover:after{
+  width: 100%;
+  }
+}
+
+// banner section
+.banner-image{
+  background-image: linear-gradient(rgba(9, 21, 32, 0.75), rgba(9, 21, 32, 0.75)), url("../Assets/images/bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.banner-content-wrapper{
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 8.2rem 0;
+  @include screen-size(phone) {
+    & {
+     flex-direction: column;
+     justify-content: center;
+    }
+  }
+}
+.banner-content{
+  color: $white;
+  flex-basis: 50%;
+  padding-right: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  @include screen-size(phone) {
+    & {
+    flex-basis: 100%;
+   align-items: center;
+    padding-right: 0;
+    }
+  }
+}
+.main-heading{
+  font-size: 5.6rem;
+  font-weight: 700;
+  line-height: 120%;
+  @include screen-size(phone) {
+    & {
+   text-align: center;
+    }
+  }
+}
+.sub-content{
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 300;
+  margin-top: 2.4rem;
+  margin-bottom: 3.2rem;
+  width: 75%;
+}
+
+// button styles
+.primary-btn{
+ @include btn-style(2.4rem);
+  padding: 1.0rem 2.4rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  overflow: hidden; //for hover effect
+  position: relative;
+  transition: all 0.2s linear 0s;
+&:before {
+  content: "\f054";
+  font-family: FontAwesome;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 3.0rem;
+  background-color: rgba($overlay-color,0.3);
+  border-radius: 0 50% 50% 0;
+  transform: scale(0,1);
+  transform-origin: left center;
+  transition: all 0.2s linear 0s;
+}
+&:hover {
+  text-indent: 2.0rem;
+  
+  &:before {
+    transform: scale(1,1);
+    text-indent: 0;
+  }
+
+}
+}
+// right side(form styles)
+.form-container{
+  flex-basis: 50%;
+  display: flex;
+  justify-content: end;
+  @include screen-size(phone) {
+    & {
+    flex-basis: 100%;
+    justify-content: center;
+    padding: 3.0rem 2.0rem .5rem 2.0rem;
+    }
+  }
+}
+.form-content-wrapper{
+  display: flex;
+  flex-direction: column;
+  color: $secondary-blue;
+  width: 36.5rem;
+  background-color: $white;
+  padding: 2.4rem;
+  border-radius: 1.6rem;
+  box-shadow: 0px 8px 24px -4px rgba(24, 39, 75, 0.08);
+  box-shadow: 0px 6px 12px -6px rgba(24, 39, 75, 0.08);
+
+ 
+}
+.form-heading{
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
+}
+.banner-form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.banner-form-input{
+  @extend %input-style;
+}
+.label-style{
+font-size: 1.4rem;
+margin-bottom: .4rem;
+line-height: 150%;
+color: $black-text;
+}
+.inline{
+  display: flex;
+  align-items: start;
+  font-size: 1.4rem;
+}
+.check-box{
+  @include btn-style(.2rem);
+  display: inline-block;
+  height: 2.0rem;
+  width: 3.0rem;
+ 
+  margin-right: .8rem;
+  cursor: pointer;
+  position: relative;
+  
+}
+.check-box-label{
+ 
+  cursor: pointer;
+}
+
+// custom checkbox
+.check-box::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $dark-gray;
+  border-radius: .2rem;
+  visibility: hidden;
+}
+.check-box::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 60%;
+  height: 30%;
+  background: none;
+  border-left: 0.05rem solid $white;
+  border-bottom: 0.05rem solid $white;
+  transform: translateX(25%) translateY(40%) rotate(-45deg);
+  visibility: hidden;
+}
+
+.check-box:checked {
+  &::before {
+    visibility: visible;
+    z-index: 2;
+  }
+  &::after {
+    visibility: visible;
+    z-index: 3;
+  }
+}
+.terms-condition-link{
+  color: $sky-blue;
+  text-decoration: underline;
+}
+.form-button{
+@include btn-style();
+background-color: $secondary-blue;
+margin-top: 3.2rem;
+position: relative;
+overflow: hidden;
+transition: all 0.2s linear 0s;
+&:before {
+  content: "\f061";
+  font-family: FontAwesome;
+  color: $secondary-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 9%;
+  height: 100%;
+  width: 3.0rem;
+  background-color:rgba($overlay-color,1);
+  border-radius:  50%;
+  transform: scale(0,0);
+  transform-origin: center left;
+  transition: all 0.4s linear 0s;
+}
+&:hover {
+  text-indent: 1.0rem;
+   .button-font-icon{
+    visibility: hidden;
+    
+  }
+  
+  &:before {
+    transform: scale(1,1);
+    text-indent: 0;
+    right: 0;
+  }
+
+}
+
+}
+
+// Card section
+#cardSection{
+  background-color: $whitef9;
+}
+.card{
+  padding-right: 4.8rem;
+  &:last-child{
+    padding-right: 0;
+  }
+  @include screen-size(phone) {
+    & {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  &:last-child{
+    padding-right: 4rem;
+  }
+    }
+  }
+}
+.icon-bg{
+  border-radius: 50%;
+  background-color: $turqoise;
+  width: 6.4rem;
+  height: 6.4rem;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.card-icon{
+  width: 3.0rem;
+  height: 4.0rem;
+}
+.finance-icon{
+  width: 3.4rem;
+  height: 3.4rem;
+}
+.card-content-heading{
+  font-size: 2.0rem;
+  color:$primary-blue;
+  font-weight: 600;
+  padding-top: 2.4rem;
+  padding-bottom: .8rem;
+}
+.card-content{
+  font-size: 1.6rem;
+  color: $black-text;
+  line-height: 150%;
+}
+.card-content-wrapper{
+  display: flex;
+  padding: 9.5rem 0;
+  @include screen-size(phone) {
+    & {
+ flex-direction: column;
+ justify-content: center;
+    }
+  }
+
+}
+.button-font-icon{
+  color: $white;
+}
+//hamburger styles
+@media only screen and (max-width:576px) { 
+  
+  nav ul{
+    position:absolute;
+    right: 0;
+    top: 7.0rem;
+    width:100%;
+    background:$white;
+    max-height: 0;
+    overflow:hidden;
+  }
+  
+  nav li{
+    display:block;
+    width:100%;
+    padding:.5rem;  
+    &:hover{
+      background-color: $grayc4;
+    }
+  }
+
+  nav a{
+    width:100%;
+    display:block;
+
+  }
+  
+  #nav-button:checked ~ ul{
+      max-height:64.0rem;
+      transition: max-height 1s ease-in-out;
+  }
+  #nav-button:checked + .hamburger-label::before{
+    transform:rotate(313deg) translateX(-1.0rem);
+  }
+  
+  #nav-button:checked + .hamburger-label::after{
+    transform:rotate(41deg) translateX(-.7rem);
+  }
+
+  }
+ 
+   
